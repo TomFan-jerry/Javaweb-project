@@ -30,4 +30,8 @@ public interface EmpMapper {
     //修改员工数据
     @Update("update emp set image = #{image}, username = #{username}, name = #{name}, gender = #{gender}, job = #{job}, entry_date = #{entryDate}, dept_id = #{deptId}, update_time = #{updateTime} where id = #{id}")
     void update(Emp emp);
+
+    //员工登录
+    @Select("select * from emp where username = #{username} and password = #{password}")
+    Emp getByUsernameAndPassword(Emp emp);
 }

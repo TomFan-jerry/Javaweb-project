@@ -22,4 +22,7 @@ public interface EmpService {
 
     //修改员工数据
     void update(Emp emp);
+
+    //员工登录
+    Emp login(Emp emp);
 }
