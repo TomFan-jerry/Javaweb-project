@@ -11,6 +11,11 @@ spring:
       max-file-size: 10MB
       max-request-size: 300MB
 
+#spring事务管理日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

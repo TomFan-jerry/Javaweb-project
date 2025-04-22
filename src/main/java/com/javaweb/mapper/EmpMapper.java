@@ -2,10 +2,7 @@ package com.javaweb.mapper;
 
 import com.github.pagehelper.Page;
 import com.javaweb.pojo.Emp;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -18,6 +15,10 @@ public interface EmpMapper {
 
     //根据id删除员工数据
     void delete(List<Integer> ids);
+
+    //根据部门id删除员工
+    @Delete("delete from emp where dept_id = #{id}")
+    void deleteByDeptId(Integer id);
 
     //添加员工数据
     @Insert("insert into emp(username, name, gender, image, job, entry_date, dept_id, create_time, update_time) values (#{username}, #{name}, #{gender}, #{image}, #{job}, #{entryDate}, #{deptId}, #{createTime}, #{updateTime})")

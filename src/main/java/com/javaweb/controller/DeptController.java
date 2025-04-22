@@ -25,10 +25,10 @@ public class DeptController {
         return Result.success(deptList);
     }
 
-    //根据id删除部门
+    //根据id删除部门（即解散部门，同时删除此部门的员工）
     @DeleteMapping("/{id}")
     public Result deleteById(@PathVariable Integer id) {
-        log.info("根据id删除部门:{}", id);
+        log.info("根据id解散部门:{}", id);
         deptService.deleteById(id);
         return Result.success();
     }
