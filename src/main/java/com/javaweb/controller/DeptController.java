@@ -1,5 +1,6 @@
 package com.javaweb.controller;
 
+import com.javaweb.anno.Log;
 import com.javaweb.pojo.Dept;
 import com.javaweb.pojo.Result;
 import com.javaweb.service.DeptService;
@@ -26,6 +27,7 @@ public class DeptController {
     }
 
     //根据id删除部门（即解散部门，同时删除此部门的员工）
+    @Log
     @DeleteMapping("/{id}")
     public Result deleteById(@PathVariable Integer id) {
         log.info("根据id解散部门:{}", id);
@@ -34,6 +36,7 @@ public class DeptController {
     }
 
     //新增部门
+    @Log
     @RequestMapping
     public Result add(@RequestBody Dept dept) {
         log.info("新增部门:{}", dept);
@@ -50,6 +53,7 @@ public class DeptController {
     }
 
     //修改部门信息
+    @Log
     @PutMapping
     public Result update(@RequestBody Dept dept) {
         log.info("修改部门信息:{}",dept);
